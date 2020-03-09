@@ -1,0 +1,2 @@
+# Example of a `.gitattributes` file which reclassifies `.inc` files as shell:
+*.inc linguist-language=Shell
