@@ -33,8 +33,10 @@ alias kgnw='kubectl get nodes -o wide'
 alias kgna='kg all'
 alias kgna-istio='kgna -n istio-system'
 alias kgnaw='kg all -o wide'
-alias kgs='kg -n kube-system'
+alias kgs='kg services'
+alias kgsw='kg services -o wide'
 alias kgp='kg pods'
+alias kgpw='kg pods -o wide'
 alias kl='kubectl logs'
 alias kls='kubectl logs -n kube-system'
 alias krs='kubectl rollout status'
@@ -61,5 +63,9 @@ alias ipl='kubectl -n istio-system logs $(kubectl -n istio-system get pods -l is
 
 # Grab proxy config
 alias istgpc='istioctl proxy-config cluster -n istio-system $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}")'
+
+# Grab default Ingress Gateway proxy config routes
+alias istgpcr='istioctl proxy-config routes -o json -n istio-system $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}")'
+
 
 ### END ISTIO ###
