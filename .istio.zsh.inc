@@ -16,6 +16,9 @@ alias ipl='kubectl -n istio-system logs $(kubectl -n istio-system get pods -l is
 # Grab proxy config
 alias istgpc='istioctl proxy-config cluster -n istio-system $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}")'
 
-# Grab default Ingress Gateway proxy config routes
-alias istgpcr='istioctl proxy-config routes -o json -n istio-system $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}")'
-
+# Grab Ingress Gateway proxy config routes
+function istgpcr() {
+NAMESPACE=${1:-istio-system}
+GATEWAY=${2:-ingressgateway}
+  istioctl proxy-config routes -o json -n $NAMESPACE $(kubectl -n $NAMESPACE get pods -listio=$GATEWAY -o=jsonpath="{.items[0].metadata.name}")
+}
