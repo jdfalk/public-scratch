@@ -16,8 +16,8 @@ else
   echo "FaIled to install command line tools" >&2
 fi
 
-curl -L https://iterm2.com/downloads/stable/latest -o /Applications/iterm2
-
+curl -L https://iterm2.com/downloads/stable/latest -o /Applications/iterm2.zip
+unzip /Applications/iterm2.zip
 
 # Setup brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
