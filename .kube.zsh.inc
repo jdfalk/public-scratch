@@ -1,43 +1,82 @@
 # Kubernetes
+# Pieces taken from 
+
+if (( $+commands[kubectl] )); then
+    __KUBECTL_COMPLETION_FILE="${ZSH_CACHE_DIR}/kubectl_completion"
+
+    if [[ ! -f $__KUBECTL_COMPLETION_FILE ]]; then
+        kubectl completion zsh >! $__KUBECTL_COMPLETION_FILE
+    fi
+
+    [[ -f $__KUBECTL_COMPLETION_FILE ]] && source $__KUBECTL_COMPLETION_FILE
+
+    unset __KUBECTL_COMPLETION_FILE
+fi
+
+
 function kmerge() {
   KUBECONFIG=~/.kube/config:$1 kubectl config view --flatten > ~/.kube/mergedkub && mv ~/.kube/mergedkub ~/.kube/config
 }
+
+# Random useful things
 alias kube-prometheus='kubectl port-forward -n prometheus statefulset.apps/prometheus-prometheus-operator-prometheus 9090:9090'
+
+# This command is used a LOT both below and in daily life
+alias k=kubectl
+
+# Basis for other commands
+alias kg='kubectl get --show-kind=true'
+alias kd='kubectl describe'
+
+
+
+# Kube config
 alias kcgc='kubectl config get-contexts'
 alias kcuc='kubectl config use-context'
-alias kd='kubectl describe'
+
+
+# Pods
+alias kgp='kg pods'
+alias kgpwide='kg pods -o wide'
+alias kgap='kga pods'
+alias kgapwide='kga pods -o wide'
+
+# Services
+alias kgas='kga services'
+alias kgaswide='kga services -o wide'
+alias kgs='kg services'
+alias kgswide='kg services -o wide'
+
+
+
 alias kdrain='kubectl drain --ignore-daemonsets'
 alias kds='kubectl describe -n kube-system'
 alias ke='kubectl edit'
 alias kedit='kubectl edit'
 alias kexec='kubectl exec -it'
-alias kg='kubectl get --show-kind=true'
+
 alias kga='kg --all-namespaces'
-alias kgaw='kga -o wide'
+alias kgawide='kga -o wide'
 alias kgaa='kga all'
-alias kgaaw='kga all -o wide'
+alias kgaawide='kga all -o wide'
 alias kgad='kga deployments'
-alias kgadw='kga deployments -o wide'
+alias kgadwide='kga deployments -o wide'
 alias kgagate='kga gateway'
-alias kgagatew='kga gateway -o wide'
-alias kgap='kga pods'
-alias kgapw='kga pods -o wide'
-alias kgas='kga services'
-alias kgasw='kga services -o wide'
+alias kgagatewide='kga gateway -o wide'
+
+
 alias kgavs='kga virtualservice'
-alias kgavsw='kga virtualservice -o wide'
+alias kgavswide='kga virtualservice -o wide'
 alias kgo='kg -o yaml'
 alias kgksa='kga all'
-alias kgksaw='kg --namespace kube-system all -o wide'
+alias kgksawide='kg --namespace kube-system all -o wide'
 alias kgn='kubectl get nodes'
-alias kgnw='kubectl get nodes -o wide'
+alias kgnwide='kubectl get nodes -o wide'
 alias kgna='kg all'
 alias kgna-istio='kgna -n istio-system'
-alias kgnaw='kg all -o wide'
-alias kgs='kg services'
-alias kgsw='kg services -o wide'
-alias kgp='kg pods'
-alias kgpw='kg pods -o wide'
+alias kgnawide='kg all -o wide'
+
+
 alias kl='kubectl logs'
 alias kls='kubectl logs -n kube-system'
 alias krs='kubectl rollout status'
