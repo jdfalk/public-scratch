@@ -82,7 +82,7 @@ alias kls='kubectl logs -n kube-system'
 alias krs='kubectl rollout status'
 alias ks='kubectl set'
 alias ksi='kubectl set image'
-
+alias kannotate='kubectl annotate'
 
 
 
