@@ -13,7 +13,7 @@ if [ $? -eq 0 ]
 then
   echo "Successfully installed command line tools"
 else
-  echo "FaIled to install command line tools" >&2
+  echo "Failed to install command line tools" >&2
 fi
 
 
