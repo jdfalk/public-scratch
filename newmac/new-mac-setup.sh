@@ -16,8 +16,40 @@ else
   echo "FaIled to install command line tools" >&2
 fi
 
-curl -L https://iterm2.com/downloads/stable/latest -o /Applications/iterm2.zip
-unzip /Applications/iterm2.zip
+
+if [ ! -d /Applications/iterm2.app ]; then
+  curl -L https://iterm2.com/downloads/stable/latest -o /Applications/iterm2.zip
+  unzip /Applications/iterm2.zip
+fi
+
+# Create my GIT stuff
+mkdir -p $HOME/repos/github/jdfalk
+cd $HOME/repos/github/jdfalk
+git clone https://github.com/jdfalk/public-scratch.git
+
+
+# Install ohh my zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+ln -s $HOME/repos/github/jdfalk/public-scratch/.istio.zsh.inc $HOME/.istio.zsh.inc
+ln -s $HOME/repos/github/jdfalk/public-scratch/.kube.zsh.inc $HOME/.kube.zsh.inc
+ln -s $HOME/repos/github/jdfalk/public-scratch/.aws.zsh.inc $HOME/.aws.zsh.inc
+
+cat <<'EOF' >> ~/.zshrc
+if [ -f ~/.kube.zsh.inc ]; then
+    source ~/.kube.zsh.inc
+fi
+
+if [ -f ~/.istio.zsh.inc ]; then
+    source ~/.istio.zsh.inc
+fi
+
+if [ -f ~/.aws.zshrc.inc ]; then
+    source ~/.aws.zshrc.inc
+fi
+EOF
+
 
 # Setup brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -71,33 +103,10 @@ brew cask install puppetlabs/puppet/pdk
 # git config --global user.name ""
 # git config --global user.email ""
 
-# Create my GIT stuff
-mkdir -p $HOME/repos/github/jdfalk
-cd $HOME/repos/github/jdfalk
-git clone https://github.com/jdfalk/public-scratch.git
 
 
-# Install ohh my zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
-cat <<'EOF' >> ~/.zshrc
-if [ -f ~/.kube.zsh.inc ]; then
-    source ~/.kube.zsh.inc
-fi
-
-if [ -f ~/.istio.zsh.inc ]; then
-    source ~/.istio.zsh.inc
-fi
-
-if [ -f ~/.aws.zshrc.inc ]; then
-    source ~/.aws.zshrc.inc
-fi
-EOF
-
-
-ln -s $HOME/repos/github/jdfalk/public-scratch/.istio.zsh.inc $HOME/.istio.zsh.inc
-ln -s $HOME/repos/github/jdfalk/public-scratch/.kube.zsh.inc $HOME/.kube.zsh.inc
 
 
 echo "Remember to install vscode and settings sync"
