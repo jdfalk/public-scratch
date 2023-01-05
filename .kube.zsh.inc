@@ -90,5 +90,6 @@ alias ks='kubectl set'
 alias ksi='kubectl set image'
 alias kannotate='kubectl annotate'
 
-
+# Enable after installing krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
