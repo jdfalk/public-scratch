@@ -200,7 +200,7 @@ alias ke='kubectl edit'
 alias kedit='kubectl edit'
 alias kexec='kubectl exec -it'
 
-alias kgaaa='kubectl get --all-namespaces'
+alias kgaaa='kubectl get --all-namespaces --show-kind=true'
 
 # Istio Specific 
 alias kggatea='kgaaa gateway'
