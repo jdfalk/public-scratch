@@ -201,6 +201,7 @@ alias kedit='kubectl edit'
 alias kexec='kubectl exec -it'
 
 alias kgaaa='kubectl get --all-namespaces --show-kind=true'
+alias kgaaawide='kgaaa -o wide'
 
 # Istio Specific 
 alias kggatea='kgaaa gateway'
@@ -241,6 +242,9 @@ function kubectlgetall {
 function kmerge() {
   KUBECONFIG=~/.kube/config:$1 kubectl config view --flatten > ~/.kube/mergedkub && mv ~/.kube/mergedkub ~/.kube/config
 }
+
+# Pod management with image information
+alias kgpi='kubectl get pods -o custom-columns="NAME:.metadata.name,READY:.status.containerStatuses[0].ready,STATUS:.status.phase,RESTARTS:.status.containerStatuses[0].restartCount,AGE:.metadata.creationTimestamp,IP:.status.podIP,NODE:.spec.nodeName,IMAGE:.spec.containers[0].image"'
 
 # Random useful things
 alias kube-prometheus='kubectl port-forward -n prometheus statefulset.apps/prometheus-prometheus-operator-prometheus 9090:9090'
