@@ -48,5 +48,6 @@
       "files": "*.graphql",
       "options": { "tabWidth": 2, "printWidth": 80 }
     }
-  ]
+  ],
+  "ignorePath": ".prettierignore"
 }
