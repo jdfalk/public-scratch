@@ -7,6 +7,26 @@
 .github/instructions/*.md
 **/*.instructions.md
 
+# Shell scripts and configuration files (NEVER format these)
+*.sh
+*.bash
+*.zsh
+*.zsh.inc
+*.bash.inc
+*.bashrc
+*.zshrc
+*.profile
+*.kube.*
+.kube.*
+**/.kube.*
+**/kubectl.*
+**/*.kubectl.*
+# Specific kubectl files
+.kube.zsh.inc
+.kube.zsh
+.istio.zsh.inc
+.aws.zsh.inc
+
 # Generated files
 workflow-permissions-analysis.json
 **/doc-updates/*.json
