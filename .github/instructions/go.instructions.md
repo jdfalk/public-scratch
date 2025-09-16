@@ -1,9 +1,11 @@
 <!-- file: .github/instructions/go.instructions.md -->
-<!-- version: 1.2.0 -->
+<!-- version: 1.2.1 -->
 <!-- guid: 4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c -->
 <!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 ---
 
 applyTo: "\*_/_.go"
@@ -11,6 +13,8 @@ description: |
 Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and merge all unique content from the Google Go Style Guide.
 
 ---
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 # Go Coding Instructions
 

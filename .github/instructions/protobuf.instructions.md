@@ -1,9 +1,11 @@
 <!-- file: .github/instructions/protobuf.instructions.md -->
-<!-- version: 2.2.0 -->
+<!-- version: 2.2.1 -->
 <!-- guid: 7d6c5b4a-3c2d-1e0f-9a8b-7c6d5e4f3a2b -->
 <!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 ---
 
 applyTo: "\*_/_.proto"
@@ -11,6 +13,8 @@ description: |
 Protocol Buffers (protobuf) style and documentation rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and implement comprehensive protobuf best practices including the 1-1-1 design pattern, Edition 2023 features, and Google's style guide.
 
 ---
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 # Protobuf Coding Instructions
 
